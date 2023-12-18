@@ -1,0 +1,54 @@
+﻿@using Core.Models;
+
+@model List<Product>?
+
+<div class="container-fluid">
+
+
+
+
+    <table class="table">
+        <a class="btn btn-success my-4" asp-action="Create" asp-controller="Product">Create</a>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">ShowcasePrimaryText</th>
+                <th scope="col">ShowcaseSecondaryText</th>
+                <th scope="col">ProjectName</th>
+                <th scope="col">Description</th>
+                <th scope="col">MiniDescription</th>
+                <th scope="col">ImageFileName</th>
+                <th scope="col">CategoryId</th>
+                <th>ACTIONS</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (Product c in Model)
+            {
+                <tr>
+                    <th scope="col">@c.</th>
+                    <th scope="col">ShowcaseSecondaryText</th>
+                    <th scope="col">ProjectName</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">MiniDescription</th>
+                    <th scope="col">ImageFileName</th>
+                    <th scope="col">CategoryId</th>
+                    <th>
+                        <a asp-action="Update" asp-controller="Category" asp-route-id="@c.Id" class="btn btn-warning">UPDATE</a>
+                        <form asp-action="Delete" asp-controller="Category" asp-route-id="@c.Id" method="POST">
+                            <button class="btn btn-danger">DELETE</button>
+                        </form>
+                    </th>
+                </tr>
+
+            }
+
+
+
+        </tbody>
+    </table>
+
+
+</div>
